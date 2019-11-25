@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.example.autentificacion.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_cerrarsesion"
+        android:orderInCategory="200"
+        android:title="Cerrar sesión"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/menu_usuario"
+        android:title="Perfil de Usuario"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:orderInCategory="1"
+        app:showAsAction="always|withText"/>
+</menu>

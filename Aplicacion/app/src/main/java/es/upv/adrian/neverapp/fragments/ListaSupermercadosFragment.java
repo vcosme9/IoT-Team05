@@ -1,5 +1,6 @@
 package es.upv.adrian.neverapp.fragments;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import es.upv.adrian.neverapp.Producto;
-import es.upv.adrian.neverapp.adaptadores.ProductoAdaptador;
+import es.upv.adrian.neverapp.Supermercado;
+import es.upv.adrian.neverapp.adaptadores.SupermercadoAdaptador;
 import es.upv.adrian.neverapp.R;
 
 public class ListaSupermercadosFragment extends Fragment{ // TODO: Rename parameter arguments, choose names that match
@@ -25,12 +26,12 @@ public class ListaSupermercadosFragment extends Fragment{ // TODO: Rename parame
     private String mParam1;
     private String mParam2;
 
-    private ProductosFragment.OnFragmentInteractionListener mListener;
+    private ListaSupermercadosFragment.OnFragmentInteractionListener mListener;
 
     RecyclerView recyclerSupermercados;
-    ArrayList<Producto> listaSupermercados;
+    ArrayList<Supermercado> listaSupermercados;
 
-    public ListaSupermercadosFragment{
+    public ListaSupermercadosFragment(){
         // Required empty public constructor
     }
 
@@ -43,13 +44,13 @@ public class ListaSupermercadosFragment extends Fragment{ // TODO: Rename parame
      * @return A new instance of fragment ListaSupermercadoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProductosFragment newInstance(String param1, String param2) {
-        ListaSupermercadosFragment nuevaLista = new ListaSupermercadosFragment();
+    public static ListaSupermercadosFragment newInstance(String param1, String param2) {
+        ListaSupermercadosFragment listaSupermercadosFragment = new ListaSupermercadosFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        listaSupermercadosFragment.setArguments(args);
+        return listaSupermercadosFragment;
     }
 
     @Override
@@ -67,21 +68,21 @@ public class ListaSupermercadosFragment extends Fragment{ // TODO: Rename parame
 
         View vista = inflater.inflate(R.layout.fragment_lista_supermercado, container, false);
         listaSupermercados= new ArrayList<>();
-        recyclerSupermercados=  vista.findViewById(R.id.recyclerId); //no pilla el elemento del xml (fragment_lista_supermercado) SOLUCIONAR
-       // recyclerSupermercados.LayoutManager(new LinearLayoutManager(getContext()));
+        recyclerSupermercados=  vista.findViewById(R.id.recyclerId);
+        recyclerSupermercados.setLayoutManager(new LinearLayoutManager(getContext()));
 
         llenarLista();
 
-        ProductoAdaptador adaptador = new ProductoAdaptador(listaSupermercados);
+        SupermercadoAdaptador adaptador = new SupermercadoAdaptador(listaSupermercados);
         recyclerSupermercados.setAdapter(adaptador);
 
         return vista;
     }
 
     private void llenarLista() {
-        listaSupermercados.add(new Producto("Carrefour", "Carrefour es una cadena multinacional de distribución de origen francés", R.drawable.logocarrefour)); //CAMBIAR LAS FOTOS Y LOS PARAMETROS
-        listaSupermercados.add(new Producto("Mercadona", "Mercadona es una compañía española de distribución con sede en el municipio de Tabernes Blanques y origen en el cercano de Puebla de Farnals, ambos pertenecientes a la provincia de Valencia", R.drawable.logomercadona));
-        listaSupermercados.add(new Producto("masymas", "Supermercados Masymas es una marca comercial de cuatro empresas: Hijos de Luis Rodríguez, S.A. en Asturias y León Juan Fornés Fornés, S.A. en Castellón, Valencia, Alicante y Murcia. Sucesores de Pedro Soriano Buforn, S.L. en Alicante y Valencia. Luis Piña, S.A. en Córdoba y Jaén.", R.drawable.logomasymas));
+        listaSupermercados.add(new Supermercado("Carrefour", "Carrefour es una cadena multinacional de distribución de origen francés", R.drawable.logocarrefour)); //CAMBIAR LAS FOTOS Y LOS PARAMETROS
+        listaSupermercados.add(new Supermercado("Mercadona", "Mercadona es una compañía española de distribución con sede en el municipio de Tabernes Blanques y origen en el cercano de Puebla de Farnals, ambos pertenecientes a la provincia de Valencia", R.drawable.logomercadona));
+        listaSupermercados.add(new Supermercado("masymas", "Supermercados Masymas es una marca comercial de cuatro empresas: Hijos de Luis Rodríguez, S.A. en Asturias y León Juan Fornés Fornés, S.A. en Castellón, Valencia, Alicante y Murcia. Sucesores de Pedro Soriano Buforn, S.L. en Alicante y Valencia. Luis Piña, S.A. en Córdoba y Jaén.", R.drawable.logomasymas));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -89,5 +90,37 @@ public class ListaSupermercadosFragment extends Fragment{ // TODO: Rename parame
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof ProductosFragment.OnFragmentInteractionListener) {
+            mListener = (ListaSupermercadosFragment.OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 }

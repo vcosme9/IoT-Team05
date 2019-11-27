@@ -45,18 +45,18 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:655974184199:android:0243d2d1563407a82b01a2",
+        "mobilesdk_app_id": "1:655974184199:android:64be48a487580ab92b01a2",
         "android_client_info": {
-          "package_name": "es.upv.migui.neverapp"
+          "package_name": "es.upv.adrian.neverapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "655974184199-fc8qk30boifjnrlmi338dokthft14fcm.apps.googleusercontent.com",
+          "client_id": "655974184199-tq3s0n1msd7mcvo9puok8kevau58cs21.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "es.upv.migui.neverapp",
-            "certificate_hash": "07c538a6dab089bd002c9362a302c6cfd940f52a"
+            "package_name": "es.upv.adrian.neverapp",
+            "certificate_hash": "5cb60ce60aa045a5a241340c1f17a8826e979fa0"
           }
         },
         {

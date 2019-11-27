@@ -7,6 +7,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -20,6 +21,7 @@ import android.view.MenuItem;
 import es.upv.adrian.neverapp.fragments.ContenedorFragment;
 import es.upv.adrian.neverapp.fragments.PerfilFragment;
 import es.upv.adrian.neverapp.fragments.ProductosFragment;
+import es.upv.adrian.neverapp.fragments.ListaSupermercadosFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +40,25 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout); //ESTO TENGO QUE ENCONTRARLO
+        drawer.closeDrawer(GravityCompat.START);
+
+        /*final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();*/
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -56,17 +77,16 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            startActivity(new Intent (this, ConfiguracionActivity.class));
+            startActivity(new Intent(this, ConfiguracionActivity.class));
         }
         if (id == R.id.menu_usuario) {
             Intent intent = new Intent(this, UsuarioActivity.class);
             startActivity(intent);
         }
-       if(id == R.id.action_cerrarsesion){
-           FirebaseAuth.getInstance().signOut();
-           startActivity(new Intent (this, LoginActivity.class));
+        if (id == R.id.action_cerrarsesion) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, LoginActivity.class));
         }
-
 
 
         return super.onOptionsItemSelected(item);
@@ -76,31 +96,32 @@ public class MainActivity extends AppCompatActivity {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Fragment miFragment=null;
-        boolean fragmentSeleccionado=false;
+        Fragment miFragment = null;
+        boolean fragmentSeleccionado = false;
 
 
         /*if (id == R.id.nav_camera) {
             miFragment=new FormularioFragment();
             fragmentSeleccionado=true;
-        } else*/ if (id == R.id.nav_gallery) {
-            miFragment=new ProductosFragment();
-            fragmentSeleccionado=true;
+        } else*/
+        if (id == R.id.nav_camera) {
+            miFragment = new ProductosFragment();
+            fragmentSeleccionado = true;
         } else if (id == R.id.nav_slideshow) {
-            miFragment=new PerfilFragment();
-            fragmentSeleccionado=true;
+            miFragment = new PerfilFragment();
+            fragmentSeleccionado = true;
         } else if (id == R.id.nav_share) {
-            miFragment=new ContenedorFragment();
-            fragmentSeleccionado=true;
-        } else if (id == R.id.nav_send) {
-            miFragment=new ListaSupermercadoFragment();
-            fragmentSeleccionado=true;
+            miFragment = new ContenedorFragment();
+            fragmentSeleccionado = true;
+        } else if (id == R.id.nav_gallery) {
+            miFragment = new ListaSupermercadosFragment();
+            fragmentSeleccionado = true;
         }
 
-        if (fragmentSeleccionado==true){
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_main,miFragment).commit();
+        if (fragmentSeleccionado == true) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_main, miFragment).commit();
         }
-    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout); //ESTO TENGO QUE ENCONTRARLO
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout); //ESTO TENGO QUE ENCONTRARLO
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

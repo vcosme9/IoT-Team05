@@ -18,6 +18,7 @@ import es.upv.adrian.neverapp.Utilidades;
 import es.upv.adrian.neverapp.adaptadores.SeccionesAdaptador;
 import es.upv.adrian.neverapp.R;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -99,7 +100,7 @@ public class ContenedorFragment extends Fragment {
     private void llenarViewPager(ViewPager viewPager) {
         SeccionesAdaptador adapter=new SeccionesAdaptador(getFragmentManager());
         adapter.addFragment(new PerfilFragment(),"VERDE");
-        adapter.addFragment(new ListaSupermercadoFragment(),"LISTA");
+        adapter.addFragment(new ListaSupermercadosFragment(),"AMARILLO"); //----------------no entiendo el problema SOLUCIONAR!!!
         adapter.addFragment(new ProductosFragment(),"ROJO");
 
         viewPager.setAdapter(adapter);

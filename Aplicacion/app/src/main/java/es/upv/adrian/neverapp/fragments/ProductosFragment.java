@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import es.upv.adrian.neverapp.Producto;
+import es.upv.adrian.neverapp.R;
 import es.upv.adrian.neverapp.adaptadores.ProductoAdaptador;
-import es.upv.migui.neverapp.R;
+
+
 
 public class ProductosFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -32,26 +34,22 @@ public class ProductosFragment extends Fragment {
     RecyclerView recyclerProductos;
     ArrayList<Producto> listaProductos;
 
+
+
     public ProductosFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ListaSupermercadoFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static ProductosFragment newInstance(String param1, String param2) {
-        ProductosFragment = new ProductosFragment();
+        ProductosFragment productosFragment = new ProductosFragment();
         Bundle args = new Bundle();
+
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        productosFragment.setArguments(args);
+        return productosFragment;
     }
 
     @Override
@@ -67,9 +65,9 @@ public class ProductosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View vista = inflater.inflate(R.layout.fragment_lista_supermercado, container, false);
+        View vista = inflater.inflate(R.layout.fragment_productos, container, false);
         listaProductos = new ArrayList<>();
-        recyclerProductos =  vista.findViewById(R.id.recyclerId); //no pilla el elemento del xml (fragment_lista_supermercado) SOLUCIONAR
+        recyclerProductos =  vista.findViewById(R.id.recyclerId2); //no pilla el elemento del xml (fragment_lista_supermercado) SOLUCIONAR
         recyclerProductos.setLayoutManager(new LinearLayoutManager(getContext()));
 
         llenarLista();
@@ -81,9 +79,9 @@ public class ProductosFragment extends Fragment {
     }
 
     private void llenarLista() {
-        listaSupermercados.add(new Producto("Carrefour", "Carrefour es una cadena multinacional de distribución de origen francés", R.drawable.logocarrefour)); //CAMBIAR LAS FOTOS Y LOS PARAMETROS
-        listaSupermercados.add(new Producto("Mercadona", "Mercadona es una compañía española de distribución con sede en el municipio de Tabernes Blanques y origen en el cercano de Puebla de Farnals, ambos pertenecientes a la provincia de Valencia", R.drawable.logomercadona));
-        listaSupermercados.add(new Producto("masymas", "Supermercados Masymas es una marca comercial de cuatro empresas: Hijos de Luis Rodríguez, S.A. en Asturias y León Juan Fornés Fornés, S.A. en Castellón, Valencia, Alicante y Murcia. Sucesores de Pedro Soriano Buforn, S.L. en Alicante y Valencia. Luis Piña, S.A. en Córdoba y Jaén.", R.drawable.logomasymas));
+        listaProductos.add(new Producto("Carrefour", "Carrefour es una cadena multinacional de distribución de origen francés", R.drawable.logocarrefour)); //CAMBIAR LAS FOTOS Y LOS PARAMETROS
+        listaProductos.add(new Producto("Mercadona", "Mercadona es una compañía española de distribución con sede en el municipio de Tabernes Blanques y origen en el cercano de Puebla de Farnals, ambos pertenecientes a la provincia de Valencia", R.drawable.logomercadona));
+        listaProductos.add(new Producto("masymas", "Supermercados Masymas es una marca comercial de cuatro empresas: Hijos de Luis Rodríguez, S.A. en Asturias y León Juan Fornés Fornés, S.A. en Castellón, Valencia, Alicante y Murcia. Sucesores de Pedro Soriano Buforn, S.L. en Alicante y Valencia. Luis Piña, S.A. en Córdoba y Jaén.", R.drawable.logomasymas));
     }
 
     // TODO: Rename method, update argument and hook method into UI event

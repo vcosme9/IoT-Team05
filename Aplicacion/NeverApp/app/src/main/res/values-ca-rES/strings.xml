@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NeverApp</string>
+    <string name="action_settings">Ajustos</string>
+    <string name="menu_avisos">Avisos</string>
+    <string name="menu_camara">" Càmera"</string>
+    <string name="menu_configuracion">Configuració</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_productos">Productes</string>
+    <string name="menu_supermercados">" Supermercats"</string>
+    <string name="menu_salir">Tancar Sessió</string>
+</resources>

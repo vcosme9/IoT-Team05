@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_productos"
+
+            android:title="@string/menu_productos" />
+        <item
+            android:id="@+id/nav_supermercados"
+            android:title="@string/menu_supermercados" />
+        <item
+            android:id="@+id/nav_avisos"
+            android:title="@string/menu_avisos" />
+        <item
+            android:id="@+id/nav_camara"
+            android:title="@string/menu_camara" />
+    </group>
+
+    <item android:title="Acciones Adicionales">
+        <menu>
+            <item
+                android:id="@+id/nav_configuracion"
+                android:title="@string/menu_configuracion" />
+            <item
+                android:id="@+id/nav_perfil"
+                android:title="@string/menu_perfil" />
+        </menu>
+    </item>
+
+</menu>

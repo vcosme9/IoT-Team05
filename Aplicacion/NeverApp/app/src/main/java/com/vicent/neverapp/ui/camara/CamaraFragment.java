@@ -1,27 +1,24 @@
-package com.vicent.neverapp.ui.tools;
+package com.vicent.neverapp.ui.camara;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.vicent.neverapp.R;
 
-public class ToolsFragment extends Fragment {
+public class CamaraFragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+    private CamaraViewModel camaraViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
+        camaraViewModel =
+                ViewModelProviders.of(this).get(CamaraViewModel.class);
         View root = inflater.inflate(R.layout.fragment_tools, container, false);
 
         return root;

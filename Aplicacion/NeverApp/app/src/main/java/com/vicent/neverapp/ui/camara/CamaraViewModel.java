@@ -1,16 +1,16 @@
-package com.vicent.neverapp.ui.home;
+package com.vicent.neverapp.ui.camara;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class CamaraViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public CamaraViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is tools fragment");
     }
 
     public LiveData<String> getText() {

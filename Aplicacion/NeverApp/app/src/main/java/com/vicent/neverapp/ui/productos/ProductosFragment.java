@@ -1,4 +1,4 @@
-package com.vicent.neverapp.ui.home;
+package com.vicent.neverapp.ui.productos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.vicent.neverapp.R;
 
-public class HomeFragment extends Fragment {
+public class ProductosFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private ProductosViewModel productosViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+        productosViewModel =
+                ViewModelProviders.of(this).get(ProductosViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
+        productosViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

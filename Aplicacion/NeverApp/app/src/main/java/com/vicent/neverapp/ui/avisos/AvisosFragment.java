@@ -1,4 +1,4 @@
-package com.vicent.neverapp.ui.gallery;
+package com.vicent.neverapp.ui.avisos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.vicent.neverapp.R;
 
-public class GalleryFragment extends Fragment {
+public class AvisosFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private AvisosViewModel avisosViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(this, new Observer<String>() {
+        avisosViewModel =
+                ViewModelProviders.of(this).get(AvisosViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        final TextView textView = root.findViewById(R.id.text_slideshow);
+        avisosViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

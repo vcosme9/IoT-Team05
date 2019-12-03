@@ -1,4 +1,4 @@
-package com.vicent.neverapp.ui.share;
+package com.vicent.neverapp.ui.configuracion;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.vicent.neverapp.R;
 
-public class ShareFragment extends Fragment {
+public class ConfiguracionFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private ConfiguracionViewModel configuracionViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
+        configuracionViewModel =
+                ViewModelProviders.of(this).get(ConfiguracionViewModel.class);
         View root = inflater.inflate(R.layout.fragment_share, container, false);
         final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
+        configuracionViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

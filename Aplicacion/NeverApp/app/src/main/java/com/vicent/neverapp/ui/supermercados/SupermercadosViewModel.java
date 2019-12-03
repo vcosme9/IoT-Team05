@@ -1,14 +1,14 @@
-package com.vicent.neverapp.ui.gallery;
+package com.vicent.neverapp.ui.supermercados;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class SupermercadosViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public SupermercadosViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }

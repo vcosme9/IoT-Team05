@@ -1,14 +1,14 @@
-package com.vicent.neverapp.ui.share;
+package com.vicent.neverapp.ui.configuracion;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ShareViewModel extends ViewModel {
+public class ConfiguracionViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ShareViewModel() {
+    public ConfiguracionViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is share fragment");
     }

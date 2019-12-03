@@ -1,16 +1,16 @@
-package com.vicent.neverapp.ui.send;
+package com.vicent.neverapp.ui.productos;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SendViewModel extends ViewModel {
+public class ProductosViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SendViewModel() {
+    public ProductosViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is send fragment");
+        mText.setValue("This is home fragment");
     }
 
     public LiveData<String> getText() {

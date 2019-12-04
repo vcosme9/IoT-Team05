@@ -4,7 +4,7 @@
     <string name="firebase_database_url" translatable="false">https://neverapp-ba109.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">728477431508</string>
     <string name="google_api_key" translatable="false">AIzaSyC37618AIc8XE2QPgGI8nPSRZgr5PDWlCI</string>
-    <string name="google_app_id" translatable="false">1:728477431508:android:66ec7e3d6e4dc15a152d41</string>
+    <string name="google_app_id" translatable="false">1:728477431508:android:cd403f8301f26f58152d41</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC37618AIc8XE2QPgGI8nPSRZgr5PDWlCI</string>
     <string name="google_storage_bucket" translatable="false">neverapp-ba109.appspot.com</string>
     <string name="project_id" translatable="false">neverapp-ba109</string>

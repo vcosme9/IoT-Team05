@@ -22,7 +22,7 @@ public class AvisosFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         avisosViewModel =
                 ViewModelProviders.of(this).get(AvisosViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        View root = inflater.inflate(R.layout.fragment_avisos, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
         avisosViewModel.getText().observe(this, new Observer<String>() {
             @Override

@@ -19,7 +19,7 @@ public class CamaraFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         camaraViewModel =
                 ViewModelProviders.of(this).get(CamaraViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        View root = inflater.inflate(R.layout.fragment_camara, container, false);
 
         return root;
     }

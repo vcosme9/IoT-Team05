@@ -22,7 +22,7 @@ public class ProductosFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         productosViewModel =
                 ViewModelProviders.of(this).get(ProductosViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_productos, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
         productosViewModel.getText().observe(this, new Observer<String>() {
             @Override

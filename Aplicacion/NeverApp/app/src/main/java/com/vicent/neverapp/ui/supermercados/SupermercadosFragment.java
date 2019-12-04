@@ -22,7 +22,7 @@ public class SupermercadosFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         supermercadosViewModel =
                 ViewModelProviders.of(this).get(SupermercadosViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        View root = inflater.inflate(R.layout.fragment_supermercados, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
         supermercadosViewModel.getText().observe(this, new Observer<String>() {
             @Override

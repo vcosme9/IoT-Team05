@@ -39,5 +39,5 @@
         android:id="@+id/nav_perfil"
         android:name="com.vicent.neverapp.ui.perfil.PerfilFragment"
         android:label="@string/menu_perfil"
-        tools:layout="@layout/fragment_cerrarsesion" />
+        tools:layout="@layout/fragment_perfil" />
 </navigation>

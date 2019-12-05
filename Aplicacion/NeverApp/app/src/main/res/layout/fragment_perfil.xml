@@ -47,5 +47,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombre_TV" />
 
+    <TextView
+        android:id="@+id/proveedor_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="PROVEEDOR"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/rol_TV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/rol_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="ROL"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/proveedor_TV"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/proveedorFB_TB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Aqui va el proveedor"
+        app:layout_constraintEnd_toEndOf="@+id/proveedor_TV"
+        app:layout_constraintStart_toStartOf="@+id/proveedor_TV"
+        app:layout_constraintTop_toBottomOf="@+id/proveedor_TV" />
+
+    <TextView
+        android:id="@+id/rolFB_TB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Aqui va el rol"
+        app:layout_constraintEnd_toEndOf="@+id/rol_TV"
+        app:layout_constraintStart_toStartOf="@+id/rol_TV"
+        app:layout_constraintTop_toBottomOf="@+id/rol_TV" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,6 +41,8 @@ public class PerfilFragment extends Fragment {
         //final TextView textView = root.findViewById(R.id.text_send);
         final TextView textView_nombre = root.findViewById(R.id.nombre_TV);
         final TextView textView_correo = root.findViewById(R.id.correo_TV);
+        final TextView textView_proveedor = root.findViewById(R.id.proveedorFB_TB);
+        final TextView textView_rol = root.findViewById(R.id.rolFB_TB);
 
         /* Coger foto de perfil del usuario del firebase
 
@@ -74,6 +76,8 @@ public class PerfilFragment extends Fragment {
 
                 textView_nombre.setText(usuario.getDisplayName());
                 textView_correo.setText(usuario.getEmail());
+                textView_proveedor.setText(usuario.getProviderId());
+                textView_rol.setText("Rol no definido.");
                 /*
                 textView.setText(s);
                 textViewnombre.setText(usuario.getDisplayName());

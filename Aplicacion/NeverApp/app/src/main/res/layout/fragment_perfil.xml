@@ -52,6 +52,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nombre_TV" />
 
+        <ImageView
+            android:id="@+id/editar_FAB"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="268dp"
+            android:layout_marginLeft="268dp"
+            android:layout_marginBottom="24dp"
+            android:onClick="lanzarEditarPerfil"
+            android:src="@drawable/botoneditarblanco"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/imageView2" />
+
         <TextView
             android:id="@+id/proveedor_TV"
             android:layout_width="wrap_content"
@@ -61,7 +73,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/rol_TV"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
 
         <TextView
             android:id="@+id/rolFB_TB"

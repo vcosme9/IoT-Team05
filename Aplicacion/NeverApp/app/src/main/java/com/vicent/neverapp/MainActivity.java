@@ -88,4 +88,11 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public void lanzarEditarPerfil (View view){
+
+        Intent i = new Intent(this, EditarPerfilActivity.class);
+        startActivity(i);
+
+    }
 }

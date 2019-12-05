@@ -44,56 +44,26 @@ public class PerfilFragment extends Fragment {
         final TextView textView_proveedor = root.findViewById(R.id.proveedorFB_TB);
         final TextView textView_rol = root.findViewById(R.id.rolFB_TB);
 
-        /* Coger foto de perfil del usuario del firebase
 
-        RequestQueue colaPeticiones = Volley.newRequestQueue(getActivity()
-                .getApplicationContext());
-        ImageLoader lectorImagenes = new ImageLoader(colaPeticiones,
-                new ImageLoader.ImageCache() {
-                    private final LruCache<String, Bitmap> cache =
-                            new LruCache<String, Bitmap>(10);
-                    public void putBitmap(String url, Bitmap bitmap) {
-                        cache.put(url, bitmap);
-                    }
-                    public Bitmap getBitmap(String url) {
-                        return cache.get(url);
-                    }
-                });
-        // Foto de usuario
-        Uri urlImagen = usuario.getPhotoUrl();
-        if (urlImagen != null) {
-            NetworkImageView fotoUsuario = (NetworkImageView)
-                    root.findViewById(R.id.imagen);
-            fotoUsuario.setImageUrl(urlImagen.toString(), lectorImagenes);
-        }
-        */ //No funciona por ahora
 
         perfilViewModel.getText().observe(this, new Observer<String>() {
             @Override
-
             //Aqui se les añade el texto a las partes.
             public void onChanged(@Nullable String s) {
 
+                // Mostrar actual información del usuario
                 textView_nombre.setText(usuario.getDisplayName());
                 textView_correo.setText(usuario.getEmail());
                 textView_proveedor.setText(usuario.getProviderId());
                 textView_rol.setText("Rol no definido.");
-                /*
-                textView.setText(s);
-                textViewnombre.setText(usuario.getDisplayName());
-                textViewcorreo.setText(usuario.getEmail());
-                */
 
 
 
-                /*
-                String correo = usuario.getEmail();
-                String telefono = usuario.getPhoneNumber();
-                Uri urlFoto = usuario.getPhotoUrl()
-                String uid = usuario.getUid();
-                */
             }
         });
         return root;
     }
+
+
+
 }

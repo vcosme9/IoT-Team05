@@ -38,32 +38,46 @@ public class LoginActivity extends AppCompatActivity {
                     .createSignInIntentBuilder()
                     .setAvailableProviders(Arrays.asList(
                             new AuthUI.IdpConfig.EmailBuilder().setAllowNewAccounts(true).build(),
+                            /*new AuthUI.IdpConfig.PhoneBuilder().build(),*/
                             new AuthUI.IdpConfig.GoogleBuilder().build())).build(), RC_SIGN_IN);
+
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode,Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            if (resultCode == RESULT_OK) {
-                login();
-                finish();
-            } else {
-                IdpResponse response = IdpResponse.fromResultIntent(data);
-                if (response == null) {
-                    Toast.makeText(this,"Cancelado",Toast.LENGTH_LONG).show();
-                    return;
-                } else if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
-                    Toast.makeText(this,"Sin conexión a Internet",
-                            Toast.LENGTH_LONG).show();
-                    return;
-                } else if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
-                    Toast.makeText(this,"Error desconocido",
-                            Toast.LENGTH_LONG).show();
-                    return;
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user.sendEmailVerification();
+        if (user.isEmailVerified() == true) {
+            if (requestCode == RC_SIGN_IN) {
+                if (resultCode == RESULT_OK) {
+                    login();
+                    finish();
+                } else {
+                    IdpResponse response = IdpResponse.fromResultIntent(data);
+                    if (response == null) {
+                        Toast.makeText(this, "Cancelado", Toast.LENGTH_LONG).show();
+                        return;
+                    } else if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
+                        Toast.makeText(this, "Sin conexión a Internet",
+                                Toast.LENGTH_LONG).show();
+                        return;
+                    } else if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
+                        Toast.makeText(this, "Error desconocido",
+                                Toast.LENGTH_LONG).show();
+                        return;
+                    }
                 }
             }
+        } else {
+            /*
+            Hacer que si no está verificado, se le traslade a un nuevo activity
+            que ponga que tiene que entrar al correo y verificarse antes de poder entrar
+            en la aplicación. Habrá un boton bajo que ponga "volver al login", que lo
+            llevará de vuelta para iniciar sesión.
+            */
         }
     }
 }

@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.vicent.neverapp.R;
 
-public class SupermercadosFragment extends Fragment {
+/*public class SupermercadosFragment extends Fragment {
 
     private SupermercadosViewModel supermercadosViewModel;
 
@@ -32,4 +32,4 @@ public class SupermercadosFragment extends Fragment {
         });
         return root;
     }
-}
+}*/

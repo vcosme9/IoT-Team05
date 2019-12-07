@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-/*public class SupermercadosViewModel extends ViewModel {
+public class SupermercadosViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
@@ -16,4 +16,4 @@ import androidx.lifecycle.ViewModel;
     public LiveData<String> getText() {
         return mText;
     }
-}*/
+}

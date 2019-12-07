@@ -2,11 +2,13 @@ package com.vicent.neverapp;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -17,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.vicent.neverapp.R;
+import com.vicent.neverapp.ui.perfil.PerfilFragment;
 
 public class EditarPerfilActivity extends Activity {
 
@@ -25,6 +28,16 @@ public class EditarPerfilActivity extends Activity {
         setContentView(R.layout.fragment_editarperfil);
 
         /*FIREBASE*/
+
+        FirebaseUser usuari = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        EditText etUsername;
+        etUsername = findViewById(R.id.nombre_ET);
+        etUsername.setHint(usuari.getDisplayName());
+        EditText etPassword;
+        etPassword = findViewById(R.id.contraseña_ET);
+        etPassword.setHint("******");
 
     }
 
@@ -61,6 +74,13 @@ public void confirmarEdicion (View view){
                     .show();
 
 
+
+}
+
+public void volver (View view) {
+
+    Intent i = new Intent(this, PerfilFragment.class);
+    startActivity(i);
 
 }
 

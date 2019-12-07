@@ -37,7 +37,7 @@ public class SupermercadosActivity extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.google.es/maps/search/carrefour/@38.9694117,-0.1932218,15z/data=!3m1!4b1")));
+                        Uri.parse("https://www.carrefour.es/")));
             }
         });
 
@@ -51,6 +51,15 @@ public class SupermercadosActivity extends Activity {
 
                 startActivity(new Intent(Intent.ACTION_VIEW,
                         Uri.parse("https://www.carrefour.es/global/?Dy=1&Nty=1&Ntx=mode+matchallany&Ntt=" + c + "&search=Buscar")));
+            }
+        });
+
+        Button b3 = (Button) findViewById(R.id.mapsCarrefour);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.google.es/maps/search/carrefour/@38.9694117,-0.1932218,15z/data=!3m1!4b1")));
             }
         });
     }

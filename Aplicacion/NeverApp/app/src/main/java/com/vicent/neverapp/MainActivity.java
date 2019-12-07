@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-    public void Supermercados (View view){
+    public void lanzarSupermercados (View view){
 
         Intent i = new Intent(this, SupermercadosActivity.class);
         startActivity(i);

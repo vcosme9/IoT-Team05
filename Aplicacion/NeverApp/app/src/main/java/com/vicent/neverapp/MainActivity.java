@@ -1,6 +1,7 @@
 package com.vicent.neverapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,7 +17,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -103,6 +103,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+
+    public void Supermercados (View view){
+
+        Intent i = new Intent(this, SupermercadosActivity.class);
+        startActivity(i);
+    }
+
+
 
 
 }

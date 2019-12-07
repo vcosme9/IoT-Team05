@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.vicent.neverapp.R;
 
-/*public class SupermercadosFragment extends Fragment {
+public class SupermercadosFragment extends Fragment {
 
     private SupermercadosViewModel supermercadosViewModel;
 
@@ -23,13 +23,7 @@ import com.vicent.neverapp.R;
         supermercadosViewModel =
                 ViewModelProviders.of(this).get(SupermercadosViewModel.class);
         View root = inflater.inflate(R.layout.fragment_supermercados, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        supermercadosViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
         return root;
     }
-}*/
+}

@@ -9,4 +9,5 @@
     <string name="menu_productos">Products</string>
     <string name="menu_salir">Sign Off</string>
     <string name="menu_supermercados">Supermarkets</string>
+    <string name="menu_acercade">About...</string>
 </resources>

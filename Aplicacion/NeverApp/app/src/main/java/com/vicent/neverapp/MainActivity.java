@@ -83,6 +83,9 @@ public class MainActivity extends AppCompatActivity  {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this, LoginActivity.class));
         }
+        if (id == R.id.action_acercade) {
+            startActivity(new Intent(this, AcercaDeActivity.class));
+        }
 
 
         return super.onOptionsItemSelected(item);
@@ -101,12 +104,9 @@ public class MainActivity extends AppCompatActivity  {
         startActivity(i);
     }
 
-    public void lanzarAcercaDe(View view){
 
-        Intent i = new Intent(this, AcercaDeActivity.class);
-        startActivity(i);
+    public void verTwitterApp (View view) {
 
     }
-
 
 }

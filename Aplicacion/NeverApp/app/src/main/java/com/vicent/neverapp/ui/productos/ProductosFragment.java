@@ -1,35 +1,133 @@
 package com.vicent.neverapp.ui.productos;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.vicent.neverapp.R;
+
+import java.util.ArrayList;
 
 public class ProductosFragment extends Fragment {
 
+    private static final String TAG = "ProductosFragment";
+
+
+
+
+
+
+
+
+
+
     private ProductosViewModel productosViewModel;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    //para acceder al firebase
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    ArrayList<ClaseProducto> listaProductos;
+
+    RecyclerView recyclerProductos;
+    String producto;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        productosViewModel =
-                ViewModelProviders.of(this).get(ProductosViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_productos, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        productosViewModel.getText().observe(this, new Observer<String>() {
+        View vista = inflater.inflate(R.layout.fragment_productos, container, false);
+        recyclerProductos = (RecyclerView) vista.findViewById(R.id.recyclerId);
+        listaProductos = new ArrayList<>();
+        recyclerProductos.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        loadDataFromFirestore();
+
+
+        ProductosAdapter adapter = new ProductosAdapter(listaProductos);
+        recyclerProductos.setAdapter(adapter);
+
+        return vista;
+    }
+
+    private void llenarlista(String productoo) {
+        Log.d("PRUEBAS", "SE RELLENA LA LISTA");
+        Log.d("PRUEBAS", "---->"+productoo);
+                listaProductos.add(new ClaseProducto("prueba1", "esto es una prueba1", R.drawable.productos));
+                listaProductos.add(new ClaseProducto(productoo, productoo, R.drawable.productos));
+                listaProductos.add(new ClaseProducto("prueba2", "esto es una prueba2", R.drawable.productos));
+    }
+
+   /* private  void consultarFirebase() {
+        //FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+       // db.collection("SENSORES").document("productos").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    producto = task.getResult().getString("producto");
+
+                    Log.d("Firestore", "dato 1:" + producto);
+                } else {
+                    Log.e("Firestore", "Error al leer", task.getException());
+                }
             }
         });
-        return root;
     }
+*/
+
+    private void loadDataFromFirestore() {
+
+        if (listaProductos.size() > 0) {
+            listaProductos.clear();
+        }
+
+        //referencia la coleccion de firebase
+        final CollectionReference medidasInfo = db.collection("SENSORES").document("productos").collection("prod");
+
+
+        //coger la fecha mas nueva
+        medidasInfo.orderBy("fecha", Query.Direction.DESCENDING)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+
+                            Log.d(TAG, documentSnapshot.getId() + " => " + documentSnapshot.getData());
+
+                            //se guarda la nueva medida y la pasa a historialvo
+                            ClaseProducto mimedida = new ClaseProducto(documentSnapshot.getString("productos"),documentSnapshot.getString("fecha"), R.drawable.productos);
+                            listaProductos.add(mimedida);
+
+                        }
+
+
+
+                        //el array pasa al adaptador
+                        ProductosAdapter adaptador = new ProductosAdapter(listaProductos);
+                        recyclerProductos.setAdapter(adaptador);
+
+                    }
+                });
+
+    }
+
 }

@@ -1,3 +1,4 @@
+//noinspection GradleCompatible
 apply plugin: 'com.android.application'
 
 
@@ -6,11 +7,12 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.vicent.neverapp"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -32,15 +34,26 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     //noinspection GradleCompatible
     implementation 'com.android.support:design:28.0.0'
-    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
-
-
+    //recyclerview
+    implementation 'com.android.support:recyclerview-v7:29.0.0'
+    //cardview
+    implementation 'com.android.support:cardview-v7:29.0.0'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    //imagen circular
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
     //FIREBASE
     implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.firebase:firebase-firestore:17.1.2'
+
+    //multidex
+    implementation 'com.android.support:multidex:1.0.3'
 }
 apply plugin: 'com.google.gms.google-services'

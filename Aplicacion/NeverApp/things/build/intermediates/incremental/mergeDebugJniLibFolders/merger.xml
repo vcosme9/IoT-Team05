@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Usuario\Desktop\SEMESTRE 2A\proyecto 2019\Git2\IoT-Team05\Aplicacion\NeverApp\things\src\main\jniLibs"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\Usuario\Desktop\SEMESTRE 2A\proyecto 2019\Git2\IoT-Team05\Aplicacion\NeverApp\things\src\debug\jniLibs"/></dataSet></merger>

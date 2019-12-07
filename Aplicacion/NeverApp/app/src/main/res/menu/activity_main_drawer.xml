@@ -27,6 +27,9 @@
             <item
                 android:id="@+id/nav_perfil"
                 android:title="@string/menu_perfil" />
+            <item
+                android:id="@+id/nav_acercade"
+                android:title="@string/menu_acercade"/>
         </menu>
     </item>
 

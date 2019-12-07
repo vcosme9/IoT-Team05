@@ -1,4 +1,4 @@
-package com.vicent.neverapp.ui.supermercados;
+package com.vicent.neverapp.ui.acercade;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.vicent.neverapp.R;
 
-/*public class SupermercadosFragment extends Fragment {
+public class AcercaDeFragment extends Fragment {
 
-    private SupermercadosViewModel supermercadosViewModel;
+    private AcercaDeViewModel acercaDeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        supermercadosViewModel =
-                ViewModelProviders.of(this).get(SupermercadosViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_supermercados, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        supermercadosViewModel.getText().observe(this, new Observer<String>() {
+        acercaDeViewModel =
+                ViewModelProviders.of(this).get(AcercaDeViewModel.class);
+        View root = inflater.inflate(R.layout.activity_acercade, container, false);
+        final TextView textView = root.findViewById(R.id.text_slideshow);
+        acercaDeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
@@ -32,4 +32,4 @@ import com.vicent.neverapp.R;
         });
         return root;
     }
-}*/
+}

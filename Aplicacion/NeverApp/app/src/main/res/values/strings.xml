@@ -12,6 +12,7 @@
     <string name="menu_configuracion">Configuración</string>
     <string name="menu_salir">Cerrar Sesión</string>
     <string name="menu_perfil">Perfil</string>
+    <string name="menu_acercade">Acerca de...</string>
     <string name="menu_camara">Cámara</string>
     <string name="action_settings">Ajustes</string>
 </resources>

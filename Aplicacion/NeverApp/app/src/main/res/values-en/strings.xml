@@ -10,4 +10,11 @@
     <string name="menu_salir">Sign Off</string>
     <string name="menu_supermercados">Supermarkets</string>
     <string name="menu_acercade">About...</string>
+    <string name="label_contraseña">Password:</string>
+    <string name="label_nombre">Name:</string>
+    <string name="button_confirmar">Confirm</string>
+    <string name="button_volver">Return</string>
+    <string name="label_descripcionabout">NeverApp is an application created to control your smart fridge remotely and effectively</string>
+    <string name="label_creadores">Project and Application creators:</string>
+    <string name="label_redessociales">Application social networks:</string>
 </resources>

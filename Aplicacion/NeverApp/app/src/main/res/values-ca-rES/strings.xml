@@ -10,4 +10,11 @@
     <string name="menu_supermercados">" Supermercats"</string>
     <string name="menu_salir">Tancar Sessió</string>
     <string name="menu_acercade">Sobre...</string>
+    <string name="label_nombre">Nom:</string>
+    <string name="label_contraseña">Contrasenya:</string>
+    <string name="button_confirmar">Confirmar</string>
+    <string name="button_volver">Tornar</string>
+    <string name="label_descripcionabout">NeverApp es una aplicació creada per a controlar la teva nevera intel.ligent de manera remota i efectiva</string>
+    <string name="label_creadores">Creadors del projecte:</string>
+    <string name="label_redessociales">Xarxes socials de l\'app:</string>
 </resources>

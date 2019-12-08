@@ -8,13 +8,13 @@
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
-        android:layout_height="108dp"
+        android:layout_height="95dp"
+        android:onClick="imagenCarrefour"
         android:scaleType="centerCrop"
         android:src="@mipmap/carrefour"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@mipmap/carrefour"
-        android:onClick="imagenCarrefour"/>
+        tools:srcCompat="@mipmap/carrefour" />
 
     <Button
         android:id="@+id/mapsCarrefour"
@@ -60,7 +60,7 @@
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="410dp"
-        android:layout_height="108dp"
+        android:layout_height="95dp"
         android:layout_marginTop="16dp"
         android:onClick="imagenMercadona"
         android:scaleType="fitXY"
@@ -107,10 +107,10 @@
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:onClick="imagenMasYMas"
         android:layout_width="410dp"
-        android:layout_height="108dp"
+        android:layout_height="95dp"
         android:layout_marginTop="16dp"
+        android:onClick="imagenMasYMas"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapsMercadona"
@@ -153,5 +153,53 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton3"
         android:onClick="buscarMasYMas"/>
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="410dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="16dp"
+        android:onClick="imagenConsum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapsMasYMas"
+        app:srcCompat="@mipmap/logo_consum" />
+
+    <Button
+        android:id="@+id/mapsConsum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="MAPS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        android:onClick="verMapaConsum"/>
+
+    <EditText
+        android:id="@+id/editTextConsum"
+        android:layout_width="149dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Buscar producto"
+        app:layout_constraintBottom_toBottomOf="@+id/buscarConsum"
+        app:layout_constraintEnd_toStartOf="@+id/buscarConsum"
+        app:layout_constraintStart_toEndOf="@+id/mapsConsum"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+
+    <Button
+        android:id="@+id/buscarConsum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:text="Buscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        android:onClick="buscarConsum"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

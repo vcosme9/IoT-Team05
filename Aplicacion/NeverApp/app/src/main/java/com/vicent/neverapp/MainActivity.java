@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity  {
                 Uri.parse("https://tienda.mercadona.es/search-results?query=" + c)));
     }
 
-    public void imagenMasYMas (View view){
+       public void imagenMasYMas (View view){
         startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse("https://www.supermasymas.com/")));
     }
@@ -159,6 +159,26 @@ public class MainActivity extends AppCompatActivity  {
         startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse("https://www.supermasymas.com/tienda/listado.php?buscar=" + c + "&buscar_movil=")));
     }
+
+    public void imagenConsum (View view){
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.consum.es/")));
+    }
+
+    public void verMapaConsum (View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.es/maps/search/consum/@38.9554839,-0.19061,12.23z"));
+        startActivity(intent);
+    }
+
+    public void  buscarConsum (View view){
+
+        TextView texto = findViewById(R.id.editTextConsum);
+        String c = texto.getText().toString();
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://tienda.consum.es/consum/es/search?q=" + c + "#!Grid")));
+    }
+
 
 
 }

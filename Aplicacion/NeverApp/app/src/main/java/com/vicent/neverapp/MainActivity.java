@@ -141,4 +141,24 @@ public class MainActivity extends AppCompatActivity  {
                 Uri.parse("https://tienda.mercadona.es/search-results?query=" + c)));
     }
 
+    public void imagenMasYMas (View view){
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.supermasymas.com/")));
+    }
+
+    public void verMapaMasYMas (View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.es/maps/search/masymas/@38.9724156,-0.1933869,12.94z"));
+        startActivity(intent);
+    }
+
+    public void  buscarMasYMas (View view){
+
+        TextView texto = findViewById(R.id.editTextMasYMas);
+        String c = texto.getText().toString();
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.supermasymas.com/tienda/listado.php?buscar=" + c + "&buscar_movil=")));
+    }
+
+
 }

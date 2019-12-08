@@ -59,14 +59,14 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:scaleType="fitXY"
-        android:layout_width="411dp"
-        android:layout_height="79dp"
+        android:layout_width="410dp"
+        android:layout_height="108dp"
         android:layout_marginTop="16dp"
+        android:onClick="imagenMercadona"
+        android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextCarrefour"
-        app:srcCompat="@mipmap/logo_mercadona"
-        android:onClick="imagenMercadona"/>
+        app:srcCompat="@mipmap/logo_mercadona" />
 
     <Button
         android:id="@+id/mapsMercadona"
@@ -104,4 +104,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton2"
         android:onClick="buscarMercadona"/>
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:onClick="imagenMasYMas"
+        android:layout_width="410dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapsMercadona"
+        app:srcCompat="@drawable/logomasymas" />
+
+    <Button
+        android:id="@+id/mapsMasYMas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="MAPS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        android:onClick="verMapaMasYMas"
+        />
+
+    <EditText
+        android:id="@+id/editTextMasYMas"
+        android:layout_width="149dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Buscar producto"
+        app:layout_constraintBottom_toBottomOf="@+id/buscarMasYMas"
+        app:layout_constraintEnd_toStartOf="@+id/buscarMasYMas"
+        app:layout_constraintStart_toEndOf="@+id/mapsMasYMas"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+
+    <Button
+        android:id="@+id/buscarMasYMas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:text="Buscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        android:onClick="buscarMasYMas"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

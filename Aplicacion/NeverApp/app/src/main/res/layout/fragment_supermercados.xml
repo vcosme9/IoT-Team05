@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@mipmap/carrefour"
-        android:onClick="verCarrefour"/>
+        android:onClick="imagenCarrefour"/>
 
     <Button
         android:id="@+id/mapsCarrefour"
@@ -26,7 +26,7 @@
         android:text="MAPS"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        android:onClick="verMapaVarrefour"/>
+        android:onClick="verMapaCarrefour"/>
 
     <Button
         android:id="@+id/buscarCarrefour"
@@ -56,4 +56,52 @@
         app:layout_constraintEnd_toStartOf="@+id/buscarCarrefour"
         app:layout_constraintStart_toEndOf="@+id/mapsCarrefour"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:scaleType="fitXY"
+        android:layout_width="411dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCarrefour"
+        app:srcCompat="@mipmap/logo_mercadona"
+        android:onClick="imagenMercadona"/>
+
+    <Button
+        android:id="@+id/mapsMercadona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="MAPS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        android:onClick="verMapaMercadona"/>
+
+    <EditText
+        android:id="@+id/editTextMercadona"
+        android:layout_width="153dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Buscar producto"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/buscarMercadona"
+        app:layout_constraintEnd_toStartOf="@+id/buscarMercadona"
+        app:layout_constraintStart_toEndOf="@+id/mapsMercadona"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+
+    <Button
+        android:id="@+id/buscarMercadona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:text="Buscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        android:onClick="buscarMercadona"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

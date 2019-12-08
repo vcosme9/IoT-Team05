@@ -105,8 +105,12 @@ public class MainActivity extends AppCompatActivity  {
         startActivity(i);
     }
 
+    public void imagenCarrefour (View view) {
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.carrefour.es/")));
+    }
 
-    public void verMapaVarrefour (View view) {
+    public void verMapaCarrefour (View view) {
         Intent intent = new Intent(Intent.ACTION_VIEW,
                 Uri.parse("https://www.google.es/maps/search/carrefour/@38.9694117,-0.1932218,15z/data=!3m1!4b1"));
         startActivity(intent);
@@ -114,14 +118,27 @@ public class MainActivity extends AppCompatActivity  {
 
     public void buscarCarrefour (View view) {
         TextView texto = findViewById(R.id.editTextCarrefour);
-        String busqueda = texto.getText().toString();
+        String c = texto.getText().toString();
         startActivity(new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://www.carrefour.es/global/?Dy=1&Nty=1&Ntx=mode+matchallany&Ntt=" + busqueda + "&search=Buscar")));
+                Uri.parse("https://www.carrefour.es/global/?Dy=1&Nty=1&Ntx=mode+matchallany&Ntt=" + c + "&search=Buscar")));
     }
 
-    public void verCarrefour (View view) {
+    public void imagenMercadona (View view){
         startActivity(new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://www.carrefour.es/")));
+                Uri.parse("https://www.mercadona.es/")));
+    }
+
+    public void verMapaMercadona (View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.es/maps/search/mercadona/@38.9649664,-0.2082791,12.23z"));
+        startActivity(intent);
+    }
+
+    public void buscarMercadona (View view){
+        TextView texto = findViewById(R.id.editTextMercadona);
+        String c = texto.getText().toString();
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://tienda.mercadona.es/search-results?query=" + c)));
     }
 
 }

@@ -25,5 +25,8 @@ public class SupermercadosFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_supermercados, container, false);
 
         return root;
+
+
+
     }
 }

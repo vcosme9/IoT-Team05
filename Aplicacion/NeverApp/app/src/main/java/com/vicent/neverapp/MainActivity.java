@@ -27,6 +27,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -105,8 +106,22 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-    public void verTwitterApp (View view) {
+    public void verMapaVarrefour (View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.es/maps/search/carrefour/@38.9694117,-0.1932218,15z/data=!3m1!4b1"));
+        startActivity(intent);
+    }
 
+    public void buscarCarrefour (View view) {
+        TextView texto = findViewById(R.id.editTextCarrefour);
+        String busqueda = texto.getText().toString();
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.carrefour.es/global/?Dy=1&Nty=1&Ntx=mode+matchallany&Ntt=" + busqueda + "&search=Buscar")));
+    }
+
+    public void verCarrefour (View view) {
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.carrefour.es/")));
     }
 
 }

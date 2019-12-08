@@ -13,7 +13,8 @@
         android:src="@mipmap/carrefour"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@mipmap/carrefour" />
+        tools:srcCompat="@mipmap/carrefour"
+        android:onClick="verCarrefour"/>
 
     <Button
         android:id="@+id/mapsCarrefour"
@@ -24,7 +25,8 @@
         android:layout_marginTop="8dp"
         android:text="MAPS"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        android:onClick="verMapaVarrefour"/>
 
     <Button
         android:id="@+id/buscarCarrefour"
@@ -35,7 +37,8 @@
         android:layout_marginRight="20dp"
         android:text="Buscar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        android:onClick="buscarCarrefour"/>
 
     <EditText
         android:id="@+id/editTextCarrefour"

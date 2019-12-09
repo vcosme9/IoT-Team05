@@ -114,7 +114,7 @@ public class ProductosFragment extends Fragment {
                             Log.d(TAG, documentSnapshot.getId() + " => " + documentSnapshot.getData());
 
                             //se guarda la nueva medida y la pasa a historialvo
-                            ClaseProducto mimedida = new ClaseProducto(documentSnapshot.getString("productos"),documentSnapshot.getString("fecha"), R.drawable.productos);
+                            ClaseProducto mimedida = new ClaseProducto(documentSnapshot.getString("producto"),documentSnapshot.getString("fecha"), R.drawable.productos);
                             listaProductos.add(mimedida);
 
                         }

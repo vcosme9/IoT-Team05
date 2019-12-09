@@ -10,7 +10,10 @@ import com.google.android.things.pio.PeripheralManager;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -18,6 +21,7 @@ public class MainActivity extends Activity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     String producto;
+    String fecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,7 @@ public class MainActivity extends Activity {
 
         int s = UART0.leer();
         if (s == 632) {
-            producto = "Huevos 12U";
+            producto = "Botella de Agua";
         }
         if (s == 636) {
             producto = "Ketchup";
@@ -64,6 +68,10 @@ public class MainActivity extends Activity {
 
 
         Log.d(TAG, "------>Identificador: " + producto);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        Date date = new Date();
+
+        fecha = dateFormat.format(date);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
@@ -72,9 +80,10 @@ public class MainActivity extends Activity {
         db.setFirestoreSettings(settings);
         Map<String, Object> dato = new HashMap<>();
         dato.put("producto", producto);
+        dato.put("fecha", fecha);
 
 
-        db.collection("SENSORES").document("productos").set(dato);
+        db.collection("SENSORES").document("productos").collection("prod").add(dato);
 
 
     }

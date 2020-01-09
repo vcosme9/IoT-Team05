@@ -82,6 +82,7 @@ public void confirmarEdicion (View view){
                                             }
                                         }
                                     });
+                            Toast.makeText(EditarPerfilActivity.this, "Nuevos datos definidos", Toast.LENGTH_LONG).show();
 
                         }
                     })
@@ -155,7 +156,7 @@ public void cambiarExtra (View view) {
                         Map<String, Object> datos = new HashMap<>();
                         datos.put("temp", valor);
                         db.collection("Temperaturas").document(email).set(datos);
-                        Toast.makeText(EditarPerfilActivity.this, "Valor Cambiado", Toast.LENGTH_LONG).show();
+                        Toast.makeText(EditarPerfilActivity.this, "Nueva temperatura definida", Toast.LENGTH_LONG).show();
 
                     }
                 })

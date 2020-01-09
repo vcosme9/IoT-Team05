@@ -9,6 +9,7 @@ import android.util.Log;
 import com.google.android.things.pio.PeripheralManager;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.local.MemoryPersistence;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,7 +18,10 @@ import java.util.Locale;
 import java.util.Map;
 
 
-public class MainActivity extends Activity {
+
+
+
+public class MainActivity extends Activity  {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     String producto;

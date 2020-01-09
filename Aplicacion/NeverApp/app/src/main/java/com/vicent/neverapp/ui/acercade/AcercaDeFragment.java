@@ -23,11 +23,11 @@ public class AcercaDeFragment extends Fragment {
         acercaDeViewModel =
                 ViewModelProviders.of(this).get(AcercaDeViewModel.class);
         View root = inflater.inflate(R.layout.activity_acercade, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
+        //final TextView textView = root.findViewById(R.id.text_slideshow);
         acercaDeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+               // textView.setText(s);
             }
         });
         return root;

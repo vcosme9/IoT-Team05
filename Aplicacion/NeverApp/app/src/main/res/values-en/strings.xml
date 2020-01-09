@@ -17,4 +17,6 @@
     <string name="label_descripcionabout">NeverApp is an application created to control your smart fridge remotely and effectively</string>
     <string name="label_creadores">Project and Application creators:</string>
     <string name="label_redessociales">Application social networks:</string>
+    <string name="channel_name">neverapp</string>
+    <string name="channel_description">grupo5</string>
 </resources>

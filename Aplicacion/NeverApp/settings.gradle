@@ -1,2 +1,2 @@
-include ':app', ':things'
+include ':app', ':things', ':comun'
 rootProject.name='NeverApp'

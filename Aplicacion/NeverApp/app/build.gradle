@@ -53,7 +53,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.1.0'
     implementation 'com.google.firebase:firebase-firestore:17.1.2'
 
+    //mqtt
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
+
     //multidex
     implementation 'com.android.support:multidex:1.0.3'
+
+    //modulos
+    implementation project(path: ':comun')
 }
 apply plugin: 'com.google.gms.google-services'

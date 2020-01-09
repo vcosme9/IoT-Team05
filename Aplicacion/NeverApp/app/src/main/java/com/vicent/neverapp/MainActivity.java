@@ -1,17 +1,27 @@
 package com.vicent.neverapp;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.nfc.Tag;
+import android.os.Build;
 import android.os.Bundle;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -19,6 +29,14 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.vicent.neverapp.ui.avisos.AvisosAdapter;
+import com.vicent.neverapp.ui.avisos.ClaseAviso;
+import com.vicent.neverapp.ui.avisos.ServicioAviso;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -28,11 +46,24 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import static androidx.core.content.ContextCompat.getSystemService;
+
 
 public class MainActivity extends AppCompatActivity  {
 
-    private AppBarConfiguration mAppBarConfiguration;
 
+    private AppBarConfiguration mAppBarConfiguration;
+    private NotificationManager notificationManager;
+    static final String CHANNEL_ID = "mi_canal";
+    static final int notificationId = 1;
+    private static final String TAG = "MainActivity";
+    ArrayList<ClaseAviso> listaAvisos;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     @Override
@@ -41,14 +72,28 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //--NOTIFICACION DE UN AVISO
+        listaAvisos = new ArrayList<>();
+
+
+
+
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                loadDataFromFirestore();
+                if(listaAvisos.size() >0){
+                    startService(new Intent(MainActivity.this,
+                            ServicioAviso.class));
+                }
+
             }
+
         });
+
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -61,8 +106,63 @@ public class MainActivity extends AppCompatActivity  {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+    }//Prueba
+
+    private void loadDataFromFirestore() {
+
+        if (listaAvisos.size() > 0) {
+            listaAvisos.clear();
+        }
+
+        //referencia la coleccion de firebase
+        final CollectionReference medidasInfo = db.collection("Avisos").document("avisos").collection("avis");
+
+
+        //coger la fecha mas nueva
+        medidasInfo.orderBy("fecha", Query.Direction.DESCENDING)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+
+                            Log.d(TAG, documentSnapshot.getId() + " => " + documentSnapshot.getData());
+
+                            //se guarda la nueva medida y la pasa a historialvo
+                            ClaseAviso mimedida = new ClaseAviso(documentSnapshot.getString("titulo"),documentSnapshot.getString("descripcion"), R.drawable.cerrarsesion, documentSnapshot.getId());
+                            listaAvisos.add(mimedida);
+
+
+                        }
+
+
+
+                    }
+                });
+
+
+
     }
-//Prueba
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.channel_name);
+            String description = getString(R.string.channel_description);
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,7 +187,9 @@ public class MainActivity extends AppCompatActivity  {
         if (id == R.id.action_acercade) {
             startActivity(new Intent(this, AcercaDeActivity.class));
         }
+        if (id == R.id.MQTT) {
 
+        }
 
         return super.onOptionsItemSelected(item);
     }

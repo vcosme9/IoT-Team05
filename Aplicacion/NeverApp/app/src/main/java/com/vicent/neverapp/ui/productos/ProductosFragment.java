@@ -1,11 +1,16 @@
 package com.vicent.neverapp.ui.productos;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +27,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.vicent.neverapp.R;
 
 import java.util.ArrayList;
+
+import static androidx.core.content.ContextCompat.getSystemService;
 
 public class ProductosFragment extends Fragment {
 
@@ -41,7 +48,15 @@ public class ProductosFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
+
+
     }
+
+
 
     //para acceder al firebase
     FirebaseFirestore db = FirebaseFirestore.getInstance();

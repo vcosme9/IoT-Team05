@@ -22,5 +22,7 @@
     <string name="label_descripcionabout">NeverApp es una aplicación creada para controlar tu nevera inteligente de manera remota y efectiva.</string>
     <string name="label_creadores">Creadores del proyecto:</string>
     <string name="label_redessociales">Redes sociales de la app:</string>
+    <string name="channel_name">neverapp</string>
+    <string name="channel_description">grupo5</string>
 
 </resources>

@@ -59,7 +59,7 @@ public class AvisosFragment extends Fragment {
         AvisosAdapter adapter = new AvisosAdapter(listaAvisos);
         recyclerAvisos.setAdapter(adapter);
 
-        recyclerAvisos.addOnItemTouchListener(
+        /*recyclerAvisos.addOnItemTouchListener(
                 new RecyclerItemClickListener(getContext(), recyclerAvisos ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         TextView itemBorrar = (TextView) view.findViewById(R.id.idNombre);
@@ -80,7 +80,7 @@ public class AvisosFragment extends Fragment {
                         // do whatever
                     }
                 })
-        );
+        );*/
 
         return vista;
     }

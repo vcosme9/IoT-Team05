@@ -14,6 +14,8 @@ import com.firebase.ui.auth.IdpResponse;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 import java.util.Arrays;
 
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                     .createSignInIntentBuilder()
                     .setAvailableProviders(Arrays.asList(
                             new AuthUI.IdpConfig.EmailBuilder().setAllowNewAccounts(true).build(),
+                            //new AuthUI.IdpConfig.FacebookBuilder().build(),
                             /*new AuthUI.IdpConfig.PhoneBuilder().build(),*/
                             new AuthUI.IdpConfig.GoogleBuilder().build())).build(), RC_SIGN_IN);
 

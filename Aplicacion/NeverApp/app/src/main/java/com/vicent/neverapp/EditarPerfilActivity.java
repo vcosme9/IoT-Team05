@@ -94,7 +94,7 @@ public void confirmarEdicion (View view){
 
 public void volver (View view) {
 
-    Intent i = new Intent(this, PerfilFragment.class);
+    Intent i = new Intent(this, MainActivity.class);
     startActivity(i);
 
 }

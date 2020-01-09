@@ -1,7 +1,11 @@
 package com.vicent.neverapp;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -32,7 +38,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity  {
 
     private AppBarConfiguration mAppBarConfiguration;
-
+    private static final int SOLICITUD_PERMISO_WRITE_CALL_LOG = 0;
 
 
     @Override
@@ -180,5 +186,38 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
+    public void llamarSoporte (View view) {
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.CALL_PHONE)
+                == PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(Intent.ACTION_CALL,
+                    Uri.parse("tel:693303532"));
+            startActivity(intent);
+        } else {
+            solicitarPermiso(Manifest.permission.CALL_PHONE, "Sin el permiso"+
+                            " no puedo llamar al Soporte Técnico",
+                    SOLICITUD_PERMISO_WRITE_CALL_LOG, this);
+        }
+
+    }
+
+    public static void solicitarPermiso(final String permiso, String
+            justificacion, final int requestCode, final Activity actividad) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(actividad,
+                permiso)){
+            new AlertDialog.Builder(actividad)
+                    .setTitle("Solicitud de permiso")
+                    .setMessage(justificacion)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            ActivityCompat.requestPermissions(actividad,
+                                    new String[]{permiso}, requestCode);
+                        }})
+                    .show();
+        } else {
+            ActivityCompat.requestPermissions(actividad,
+                    new String[]{permiso}, requestCode);
+        }
+    }
 
 }

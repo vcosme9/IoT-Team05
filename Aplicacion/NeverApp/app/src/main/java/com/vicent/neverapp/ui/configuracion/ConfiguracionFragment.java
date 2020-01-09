@@ -34,6 +34,7 @@ public class ConfiguracionFragment extends Fragment {
         final EditText editText_asunto = root.findViewById(R.id.asunto);
         final EditText editText_mensaje = root.findViewById(R.id.mensaje);
         final Button boton_enviarEmail = root.findViewById(R.id.enviarEmail);
+        final Button boton_llamarSoporte = root.findViewById(R.id.llamarSoporte);
 
         configuracionViewModel.getText().observe(this, new Observer<String>() {
             @Override
@@ -66,8 +67,12 @@ public class ConfiguracionFragment extends Fragment {
                     }
                 });
 
+
             }
         });
         return root;
     }
+
+
+
 }

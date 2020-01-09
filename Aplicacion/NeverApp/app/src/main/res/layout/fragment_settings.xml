@@ -48,7 +48,7 @@
     <EditText
         android:id="@+id/mensaje"
         android:layout_width="300dp"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
@@ -68,4 +68,14 @@
         android:text="ENVIAR"
         app:layout_constraintEnd_toEndOf="@+id/mensaje"
         app:layout_constraintTop_toBottomOf="@+id/mensaje" />
+
+    <Button
+        android:id="@+id/llamarSoporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="llamarSoporte"
+        android:text="Llamar Soporte Técnico"
+        app:layout_constraintBottom_toBottomOf="@+id/enviarEmail"
+        app:layout_constraintStart_toStartOf="@+id/mensaje"
+        app:layout_constraintTop_toTopOf="@+id/enviarEmail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

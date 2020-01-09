@@ -14,6 +14,8 @@ import com.firebase.ui.auth.IdpResponse;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 import java.util.Arrays;
 
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                     .createSignInIntentBuilder()
                     .setAvailableProviders(Arrays.asList(
                             new AuthUI.IdpConfig.EmailBuilder().setAllowNewAccounts(true).build(),
+                            //new AuthUI.IdpConfig.FacebookBuilder().build(),
                             /*new AuthUI.IdpConfig.PhoneBuilder().build(),*/
                             new AuthUI.IdpConfig.GoogleBuilder().build())).build(), RC_SIGN_IN);
 
@@ -50,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode,Intent data){
         super.onActivityResult(requestCode, resultCode, data);
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         user.sendEmailVerification();
@@ -82,6 +86,8 @@ public class LoginActivity extends AppCompatActivity {
             llevará de vuelta para iniciar sesión.
             */
             this.setContentView(R.layout.activity_verificacion);
+
+            Toast.makeText(this, "Verifique por correo", Toast.LENGTH_LONG).show();
 
         }
     }

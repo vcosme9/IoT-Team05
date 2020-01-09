@@ -2,8 +2,12 @@ package com.vicent.neverapp;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Build;
@@ -22,6 +26,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -37,6 +43,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.vicent.neverapp.ui.avisos.AvisosAdapter;
 import com.vicent.neverapp.ui.avisos.ClaseAviso;
 import com.vicent.neverapp.ui.avisos.ServicioAviso;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -52,6 +59,8 @@ import java.util.ArrayList;
 
 import static androidx.core.content.ContextCompat.getSystemService;
 
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -64,6 +73,7 @@ public class MainActivity extends AppCompatActivity  {
     ArrayList<ClaseAviso> listaAvisos;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private static final int SOLICITUD_PERMISO_WRITE_CALL_LOG = 0;
 
 
     @Override
@@ -282,5 +292,57 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
+    public void llamarSoporte (View view) {
+
+        new AlertDialog.Builder(this)
+                .setTitle("Llamar Soporte Técnico")
+                .setMessage("¿Está seguro de querer llamar al soporte técnico?" + "\n" + "La llamada se efectuará directamente")
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+
+                        if (ActivityCompat.checkSelfPermission(MainActivity.this,
+                                Manifest.permission.CALL_PHONE)
+                                == PackageManager.PERMISSION_GRANTED) {
+
+
+
+                            Intent intent = new Intent(Intent.ACTION_CALL,
+                                    Uri.parse("tel:693303532"));
+                            startActivity(intent);
+
+                        } else {
+                            solicitarPermiso(Manifest.permission.CALL_PHONE, "Sin el permiso"+
+                                            " no puedo llamar al Soporte Técnico",
+                                    SOLICITUD_PERMISO_WRITE_CALL_LOG, MainActivity.this);
+                        }
+
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
+
+
+
+    }
+
+    public static void solicitarPermiso(final String permiso, String
+            justificacion, final int requestCode, final Activity actividad) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(actividad,
+                permiso)){
+            new AlertDialog.Builder(actividad)
+                    .setTitle("Solicitud de permiso")
+                    .setMessage(justificacion)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            ActivityCompat.requestPermissions(actividad,
+                                    new String[]{permiso}, requestCode);
+                        }})
+                    .show();
+        } else {
+            ActivityCompat.requestPermissions(actividad,
+                    new String[]{permiso}, requestCode);
+        }
+    }
 
 }

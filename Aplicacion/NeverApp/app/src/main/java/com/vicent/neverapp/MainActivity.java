@@ -25,6 +25,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -34,6 +35,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -187,17 +192,36 @@ public class MainActivity extends AppCompatActivity  {
 
 
     public void llamarSoporte (View view) {
-        if (ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.CALL_PHONE)
-                == PackageManager.PERMISSION_GRANTED) {
-            Intent intent = new Intent(Intent.ACTION_CALL,
-                    Uri.parse("tel:693303532"));
-            startActivity(intent);
-        } else {
-            solicitarPermiso(Manifest.permission.CALL_PHONE, "Sin el permiso"+
-                            " no puedo llamar al Soporte Técnico",
-                    SOLICITUD_PERMISO_WRITE_CALL_LOG, this);
-        }
+
+        new AlertDialog.Builder(this)
+                .setTitle("Llamar Soporte Técnico")
+                .setMessage("¿Está seguro de querer llamar al soporte técnico?" + "\n" + "La llamada se efectuará directamente")
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+
+                        if (ActivityCompat.checkSelfPermission(MainActivity.this,
+                                Manifest.permission.CALL_PHONE)
+                                == PackageManager.PERMISSION_GRANTED) {
+
+
+
+                            Intent intent = new Intent(Intent.ACTION_CALL,
+                                    Uri.parse("tel:693303532"));
+                            startActivity(intent);
+
+                        } else {
+                            solicitarPermiso(Manifest.permission.CALL_PHONE, "Sin el permiso"+
+                                            " no puedo llamar al Soporte Técnico",
+                                    SOLICITUD_PERMISO_WRITE_CALL_LOG, MainActivity.this);
+                        }
+
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
+
+
 
     }
 

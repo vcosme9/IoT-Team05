@@ -65,17 +65,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="ENVIAR"
-        app:layout_constraintEnd_toEndOf="@+id/mensaje"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mensaje" />
 
     <Button
         android:id="@+id/llamarSoporte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:onClick="llamarSoporte"
         android:text="Llamar Soporte Técnico"
         app:layout_constraintBottom_toBottomOf="@+id/enviarEmail"
-        app:layout_constraintStart_toStartOf="@+id/mensaje"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/enviarEmail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

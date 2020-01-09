@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode,Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         user.sendEmailVerification();
         if (user.isEmailVerified() == true) {
@@ -82,6 +83,8 @@ public class LoginActivity extends AppCompatActivity {
             llevará de vuelta para iniciar sesión.
             */
             this.setContentView(R.layout.activity_verificacion);
+
+            Toast.makeText(this, "Verifique por correo", Toast.LENGTH_LONG).show();
 
         }
     }

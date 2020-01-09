@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -46,6 +47,7 @@ public void confirmarEdicion (View view){
     final EditText editText_conrtaseña = findViewById(R.id.contraseña_ET);
 
 
+
             new AlertDialog.Builder(this)
                     .setTitle("Editar Perfil")
                     .setMessage("¿Confirmar cambios?")
@@ -81,6 +83,37 @@ public void volver (View view) {
 
     Intent i = new Intent(this, PerfilFragment.class);
     startActivity(i);
+
+}
+
+public void constrasenyaEmail (View view) {
+
+        final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser usuaria = FirebaseAuth.getInstance().getCurrentUser();
+        final String email;
+        email = usuaria.getEmail();
+
+        new AlertDialog.Builder(this)
+                .setTitle("Cambio contraseña por correo")
+                .setMessage("¿Está usted seguro de querer cambiar la contraseña mediante correo?")
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mAuth.setLanguageCode("es");
+                        mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()){
+                                    Toast.makeText(EditarPerfilActivity.this, "Correo enviado", Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(EditarPerfilActivity.this, "No se pudo enviar el correo", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
 
 }
 

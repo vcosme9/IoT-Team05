@@ -11,6 +11,8 @@
     <string name="menu_supermercados">Supermarkets</string>
     <string name="menu_acercade">About...</string>
     <string name="label_contraseña">Password:</string>
+    <string name="label_contraseñanueva">Password:</string>
+    <string name="label_cambiarcontraseñaporemail">Change password by email</string>
     <string name="label_nombre">Name:</string>
     <string name="button_confirmar">Confirm</string>
     <string name="button_volver">Return</string>

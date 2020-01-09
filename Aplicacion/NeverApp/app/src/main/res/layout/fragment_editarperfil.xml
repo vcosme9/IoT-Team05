@@ -10,13 +10,13 @@
         android:id="@+id/contraseña_ET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="176dp"
         android:ems="10"
         android:hint="Aqui va la contraseña actual"
         android:inputType="textPersonName|textPassword"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/nombre_ET"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/nombre_ET"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="32dp"
         android:text="@string/label_nombre"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/nombre_ET"
@@ -47,18 +47,19 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="95dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="140dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
         android:text="@string/label_contraseña"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/contraseña_ET"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/contraseña_ET" />
+        app:layout_constraintTop_toTopOf="@+id/contraseña_ET"
+        app:layout_constraintVertical_bias="0.555" />
 
     <Button
-        style="my"
         android:id="@+id/button"
+        style="my"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
@@ -91,5 +92,16 @@
         app:layout_constraintBottom_toBottomOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button" />
+
+    <Button
+        android:id="@+id/cambiarConstrasenya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="constrasenyaEmail"
+        android:text="@string/label_cambiarcontraseñaporemail"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

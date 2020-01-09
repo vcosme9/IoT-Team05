@@ -20,5 +20,9 @@
     <style name="MyButtonStyle"
         parent="Widget.MaterialComponents.Button">
     </style>
+    <style name="BotonesLogin">
+        <item name= "android:background">#008577</item>
+        <item name="android:opacity"></item>
+    </style>
 
 </resources>
